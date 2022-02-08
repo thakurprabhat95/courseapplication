@@ -5,6 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
+		<packaging>war</packaging>
 		<version>2.6.3</version>
 		
 		<relativePath/> <!-- lookup parent from repository -->
@@ -47,7 +48,21 @@
 	</dependencies>
 
 	 <build>
+		 <finalName>courseapplication</finalName>
         <plugins>
+		
+		<!-- Maven Plugin for Tomcat -->
+	<plugin>
+		<groupId>org.codehaus.cargo</groupId>
+		<artifactId>cargo-maven2-plugin</artifactId>
+		<version>1.7.6</version>
+		<configuration>
+			<container>
+				<containerId>tomcat9x</containerId>
+				<type>embedded</type>
+			</container>
+		</configuration>
+	</plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
